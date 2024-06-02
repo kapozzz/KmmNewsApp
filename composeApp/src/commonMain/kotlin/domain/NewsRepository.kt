@@ -4,6 +4,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface NewsRepository {
 
-    suspend fun getAll(): Flow<Resource<List<Article>>>
+    suspend fun getAll(q: String): Flow<Resource<List<Article>>>
 
 }

@@ -29,7 +29,6 @@ val networkModule = module {
                 header("X-Api-Key", API_KEY)
                 url {
                     host = BASE_URL
-                    parameters.append("q", "Cats")
                 }
             }
             install(Logging) {

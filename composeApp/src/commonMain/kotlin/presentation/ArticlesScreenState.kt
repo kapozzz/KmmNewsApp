@@ -5,14 +5,17 @@ import androidx.compose.runtime.mutableStateOf
 import domain.Article
 
 data class ArticlesScreenState(
-    val screenState: MutableState<ScreenState> = mutableStateOf(ScreenState.Loading)
+    val screenState: MutableState<ScreenState> = mutableStateOf(ScreenState.Loading),
+    val articles: MutableState<List<Article>> = mutableStateOf(emptyList()),
+    val errorMessage: MutableState<String> = mutableStateOf("error"),
+    val query: MutableState<String> = mutableStateOf("")
 )
 
 sealed class ScreenState() {
 
-    data class Error(val message: String): ScreenState()
+    data object Error: ScreenState()
 
-    data class Articles(val list: List<Article>): ScreenState()
+    data object Articles: ScreenState()
 
     data object Loading: ScreenState()
 
